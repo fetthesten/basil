@@ -9,8 +9,6 @@ var globals =
 	groups: {}
 };
 
-var emitter;
-
 var buttonConfig =
 {
 	buttonSize: 64,
@@ -71,15 +69,18 @@ function preload()
 function create()
 {
 	setUpButtons(buttonConfig);
-	emitter = game.add.emitter(game.world.centerX, 100, 200);
-    emitter.blendMode = PIXI.blendModes.ADD;
-	emitter.makeParticles('donk');
-    emitter.start(false, 5000, 20);
+	globals.emitter = game.add.emitter(game.world.centerX, 100, 200);
+    globals.emitter.blendMode = PIXI.blendModes.MULTIPLY;
+	globals.emitter.makeParticles('donk');
+    globals.emitter.start(false, 5000, 20);
 };
 
 function update()
 {
-	
+	if (globals.buttons.left.isDown)
+		globals.emitter.x -= 5;
+	else if (globals.buttons.right.isDown)
+		globals.emitter.x += 5;
 };
 
 function render()
