@@ -72,7 +72,8 @@ function create()
 {
 	setUpButtons(buttonConfig);
 	emitter = game.add.emitter(game.world.centerX, 100, 200);
-    emitter.makeParticles('donk');
+    emitter.blendMode = PIXI.blendModes.ADD;
+	emitter.makeParticles('donk');
     emitter.start(false, 5000, 20);
 };
 
