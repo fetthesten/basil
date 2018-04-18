@@ -1,6 +1,6 @@
-var game_width = 1024;
-var game_height = 768;
 var canvas = document.getElementById('basil_div');
+var gameWidth = canvas.clientWidth;
+var gameHeight = canvas.clientHeight;
 
 var globals = 
 {
@@ -25,8 +25,8 @@ var buttonConfig =
 };
 
 var game = new Phaser.Game(
-	game_width,
-	game_height,
+	gameWidth,
+	gameHeight,
 	Phaser.AUTO,
 	canvas,
 	{
